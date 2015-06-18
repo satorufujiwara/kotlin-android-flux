@@ -27,7 +27,7 @@ public class DebugDataModule{
     @Provides
     @AppScope
     SharedPreferences provideSharedPreferences(Application app) {
-        return app.getSharedPreferences("valencia", Context.MODE_PRIVATE);
+        return app.getSharedPreferences("kotlin", Context.MODE_PRIVATE);
     }
 
     @Provides
@@ -40,9 +40,6 @@ public class DebugDataModule{
     @AppScope
     public OkHttpClient provideOkHttpClient(Application app) {
         final OkHttpClient client = new OkHttpClient();
-//        File cacheDir = new File(app.getCacheDir(), "http");
-//        Cache cache = new Cache(cacheDir, size);
-//        client.setCache(cache);
         client.networkInterceptors().add(new StethoInterceptor());
         return client;
     }

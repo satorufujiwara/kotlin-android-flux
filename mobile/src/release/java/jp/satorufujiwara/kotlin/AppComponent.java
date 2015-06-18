@@ -1,11 +1,6 @@
-package jp.co.cyberagent.valencia;
+package jp.satorufujiwara.kotlin;
 
 import dagger.Component;
-import jp.satorufujiwara.kotlin.AppModule;
-import jp.satorufujiwara.kotlin.AppScope;
-import jp.satorufujiwara.kotlin.BaseAppComponent;
-import jp.satorufujiwara.kotlin.DaggerApp;
-import jp.satorufujiwara.kotlin.DataModule;
 
 @AppScope
 @Component(

@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        local {
+            applicationId 'jp.satorufujiwara.kotlin.local'
+        }
+        product {
+            applicationId 'jp.satorufujiwara.kotlin'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        local.java.srcDirs += 'src/local/kotlin'
+    }
+}
+
+def appcompatVersion="22.2.0"
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "com.android.support:support-v4:$appcompatVersion"
+    compile "com.android.support:appcompat-v7:$appcompatVersion"
+    compile "com.android.support:recyclerview-v7:$appcompatVersion"
+    compile "com.android.support:design:$appcompatVersion"
+
+    //kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+
+    //Dagger 2
+    compile 'com.google.dagger:dagger:2.0.1'
+    apt 'com.google.dagger:dagger-compiler:2.0.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //data
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    localCompile 'com.squareup.retrofit:retrofit-mock:1.9.0'
+
+    //image
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.3.0'
+
+    //reactive
+    compile 'io.reactivex:rxjava:1.0.10'
+    compile 'io.reactivex:rxandroid:0.24.0'
+
+    //debug
+    compile 'com.jakewharton.timber:timber:3.1.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+    debugCompile 'com.facebook.stetho:stetho:1.1.1'
+    debugCompile 'com.facebook.stetho:stetho-okhttp:1.1.1'
+    debugCompile 'com.facebook.stetho:stetho-timber:1.1.1'
+    compile('com.crashlytics.sdk.android:crashlytics:2.3.2@aar') {
+        transitive = true;
+    }
+
+    //ui
+    compile 'jp.satorufujiwara:recyclerview-binder:1.0.0'
+}

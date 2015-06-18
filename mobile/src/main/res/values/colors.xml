@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+
+
+    <color name="app_white">#ffffffff</color>
+    <color name="app_white_pressed">#fff4f4f4</color>
+    <color name="app_white_ripple">#ffd6d6d6</color>
+
+    <color name="app_selectable_pressed">#1e000000</color>
+
+    <color name="app_background">#fffafafa</color>
+
+</resources>

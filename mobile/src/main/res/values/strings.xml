@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">kotlin</string>
+
+    <string name="main_activity_toolbar"></string>
+    <string name="main_drawer_navigation_home">Home</string>
+
+</resources>

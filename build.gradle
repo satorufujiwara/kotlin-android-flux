@@ -1,0 +1,31 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        //fabric
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        //kotlin required plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        //Dagger 2 required plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        //fabric
+        classpath 'io.fabric.tools:gradle:1.+'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        //kotterknife snapshots
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        //fabric
+        maven { url 'https://maven.fabric.io/public' }
+    }
+}

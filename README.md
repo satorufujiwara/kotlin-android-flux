@@ -15,6 +15,7 @@ Libraries
  * Dagger2 - http://google.github.io/dagger
  * OkHttp - http://square.github.io/okhttp
  * Retrofit - http://square.github.io/retrofit
+ * Gson - https://github.com/google/gson
  * Glide - https://github.com/bumptech/glide
  * RxJava - https://github.com/ReactiveX/RxJava
  * Timber - http://github.com/JakeWharton/timber
@@ -22,6 +23,11 @@ Libraries
  * Stetho - http://facebook.github.io/stetho
  * Fabric - https://get.fabric.io
  * RecyclerviewBinder - https://github.com/satorufujiwara/recyclerview-binder
+
+Note
+----
+Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
+If you would build, should use your valid Api Key and Api Secret.
 
 ToDo
 ----

@@ -15,6 +15,7 @@ Libraries
  * Dagger2 - http://google.github.io/dagger
  * OkHttp - http://square.github.io/okhttp
  * Retrofit - http://square.github.io/retrofit
+ * Gson - https://github.com/google/gson
  * Glide - https://github.com/bumptech/glide
  * RxJava - https://github.com/ReactiveX/RxJava
  * Timber - http://github.com/JakeWharton/timber

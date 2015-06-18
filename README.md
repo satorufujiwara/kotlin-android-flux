@@ -23,6 +23,11 @@ Libraries
  * Fabric - https://get.fabric.io
  * RecyclerviewBinder - https://github.com/satorufujiwara/recyclerview-binder
 
+Note
+----
+Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
+If you would build, should use your valid Api Key and Api Secret.
+
 ToDo
 ----
 At [issues](https://github.com/satorufujiwara/kotlin-android-example/issues).

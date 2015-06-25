@@ -19,6 +19,7 @@ import rx.Observable
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.platform.platformStatic
+import kotlin.properties.Delegates
 
 public class MainFragment : AbstractFragment() {
 
@@ -30,7 +31,7 @@ public class MainFragment : AbstractFragment() {
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)
     val adapter: RecyclerBinderAdapter<MainSection, MainViewType> = RecyclerBinderAdapter()
-    var githubObservable: Observable<List<Repo>>? = null
+    var githubObservable: Observable<List<Repo>> by Delegates.notNull()
         @Inject set
 
     override fun onAttach(activity: Activity?) {
@@ -51,7 +52,7 @@ public class MainFragment : AbstractFragment() {
 
     override fun onResume() {
         super.onResume()
-        githubObservable?.subscribe {
+        githubObservable.subscribe {
             Timber.d("repos = %s", it)
             adapter.clear();
             it.forEach { adapter.add(MainSection.CONTENTS, MainRepoBinder(getActivity(), it)) }

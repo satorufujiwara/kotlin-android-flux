@@ -25,7 +25,7 @@ public class AppModule {
 
     @Provides
     public AppLifecycleCallbacks provideAppLifecycleCallbacks() {
-        return new BaseAppLifecycleCallbacks();
+        return new ReleaseAppLifecycleCallbacks();
     }
 
     @Provides

@@ -16,13 +16,17 @@ import dagger.Module;
 import dagger.Provides;
 import jp.satorufujiwara.kotlin.AppScope;
 import jp.satorufujiwara.kotlin.data.api.ApiModule;
+import jp.satorufujiwara.kotlin.data.repository.RepositoryModule;
 import retrofit.Endpoint;
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
-@Module(includes = ApiModule.class)
-public class DebugDataModule{
+@Module(includes = {
+        ApiModule.class,
+        RepositoryModule.class
+})
+public class DebugDataModule {
 
     @Provides
     @AppScope
@@ -53,7 +57,8 @@ public class DebugDataModule{
 
     @Provides
     @AppScope
-    RestAdapter provideRestAdapter(Endpoint endpoint, @Named("Api") OkHttpClient client, Gson gson) {
+    RestAdapter provideRestAdapter(Endpoint endpoint, @Named("Api") OkHttpClient client,
+            Gson gson) {
         return new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setClient(new OkClient(client))

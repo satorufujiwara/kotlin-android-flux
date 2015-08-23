@@ -1,4 +1,4 @@
-package jp.satorufujiwara.kotlin;
+package jp.satorufujiwara.kotlin.data;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,16 +13,18 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
+import jp.satorufujiwara.kotlin.AppScope;
 import jp.satorufujiwara.kotlin.data.api.ApiModule;
+import jp.satorufujiwara.kotlin.data.repository.RepositoryModule;
 import retrofit.Endpoint;
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
-@Module(
-        includes = {
-                ApiModule.class
-        })
+@Module(includes = {
+        ApiModule.class,
+        RepositoryModule.class
+})
 public class DataModule {
 
     @Provides

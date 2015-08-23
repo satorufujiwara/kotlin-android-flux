@@ -1,9 +1,8 @@
 package jp.satorufujiwara.kotlin
 
-import android.support.v4.app.Fragment
-import jp.satorufujiwara.kotlin.data
+import com.trello.rxlifecycle.components.support.RxFragment
 
-public abstract class AbstractFragment : Fragment(){
+public abstract class AbstractFragment : RxFragment(){
 
     override fun onDestroy() {
         super.onDestroy()

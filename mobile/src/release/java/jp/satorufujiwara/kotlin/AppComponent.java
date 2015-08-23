@@ -1,6 +1,7 @@
 package jp.satorufujiwara.kotlin;
 
 import dagger.Component;
+import jp.satorufujiwara.kotlin.data.DataModule;
 
 @AppScope
 @Component(

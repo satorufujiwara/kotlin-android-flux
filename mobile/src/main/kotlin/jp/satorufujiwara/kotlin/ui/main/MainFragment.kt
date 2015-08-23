@@ -14,8 +14,8 @@ import jp.satorufujiwara.kotlin.AbstractFragment
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.api.dto.Repo
 import jp.satorufujiwara.kotlin.data.inflate
+import jp.satorufujiwara.kotlin.data.repository.GitHubRepository
 import jp.satorufujiwara.kotlin.ui.main.drawer.MainRepoBinder
-import rx.Observable
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.platform.platformStatic
@@ -31,7 +31,7 @@ public class MainFragment : AbstractFragment() {
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)
     val adapter: RecyclerBinderAdapter<MainSection, MainViewType> = RecyclerBinderAdapter()
-    var githubObservable: Observable<List<Repo>> by Delegates.notNull()
+    var gitHubRepository: GitHubRepository by Delegates.notNull()
         @Inject set
 
     override fun onAttach(activity: Activity?) {
@@ -48,16 +48,16 @@ public class MainFragment : AbstractFragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.setAdapter(adapter)
         recyclerView.setLayoutManager(LinearLayoutManager(getActivity()))
-    }
 
-    override fun onResume() {
-        super.onResume()
-        githubObservable.subscribe {
-            Timber.d("repos = %s", it)
-            adapter.clear();
-            it.forEach { adapter.add(MainSection.CONTENTS, MainRepoBinder(getActivity(), it)) }
-            adapter.notifyDataSetChanged()
-        }
+        gitHubRepository.getRepos("octcat")
+                .compose(bindToLifecycle<Repo>())
+                .subscribe({
+                    adapter.add(MainSection.CONTENTS, MainRepoBinder(getActivity(), it))
+                }, {
+                    Timber.e(it, "error.")
+                }, {
+                    adapter.notifyDataSetChanged()
+                })
     }
 
     enum class MainSection : Section {

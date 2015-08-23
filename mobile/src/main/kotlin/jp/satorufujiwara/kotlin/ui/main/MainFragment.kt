@@ -16,6 +16,7 @@ import jp.satorufujiwara.kotlin.data.api.dto.Repo
 import jp.satorufujiwara.kotlin.data.inflate
 import jp.satorufujiwara.kotlin.data.repository.GitHubRepository
 import jp.satorufujiwara.kotlin.ui.main.drawer.MainRepoBinder
+import rx.android.schedulers.AndroidSchedulers
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.platform.platformStatic
@@ -50,6 +51,7 @@ public class MainFragment : AbstractFragment() {
         recyclerView.setLayoutManager(LinearLayoutManager(getActivity()))
 
         gitHubRepository.getRepos("octcat")
+                .observeOn(AndroidSchedulers.mainThread())
                 .compose(bindToLifecycle<Repo>())
                 .subscribe({
                     adapter.add(MainSection.CONTENTS, MainRepoBinder(getActivity(), it))

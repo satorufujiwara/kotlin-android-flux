@@ -18,6 +18,8 @@ Libraries
  * Gson - https://github.com/google/gson
  * Glide - https://github.com/bumptech/glide
  * RxJava - https://github.com/ReactiveX/RxJava
+ * RxAndroid - https://github.com/ReactiveX/RxAndroid
+ * RxLifecycle - https://github.com/trello/RxLifecycle
  * Timber - http://github.com/JakeWharton/timber
  * LeakCanary - http://github.com/square/leakcanary
  * Stetho - http://facebook.github.io/stetho

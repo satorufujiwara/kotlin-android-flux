@@ -62,6 +62,11 @@ public class MainFragment : AbstractFragment() {
                 })
     }
 
+    override fun onDestroyView() {
+        adapter.clear()
+        super.onDestroyView()
+    }
+
     enum class MainSection : Section {
         CONTENTS
     }

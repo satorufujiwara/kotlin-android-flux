@@ -88,5 +88,5 @@ dependencies {
     }
 
     //ui
-    compile 'jp.satorufujiwara:recyclerview-binder:1.1.0'
+    compile 'jp.satorufujiwara:recyclerview-binder:1.2.0'
 }

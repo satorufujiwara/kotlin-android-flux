@@ -14,13 +14,11 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import jp.satorufujiwara.kotlin.AbstractFragment
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.inflate
-import kotlin.platform.platformStatic
-import kotlin.properties.Delegates
 
 public class MainDrawerFragment : AbstractFragment() {
 
     companion object {
-        platformStatic fun newInstance(): MainDrawerFragment {
+        @JvmStatic fun newInstance(): MainDrawerFragment {
             return MainDrawerFragment()
         }
     }
@@ -29,12 +27,10 @@ public class MainDrawerFragment : AbstractFragment() {
     val headerImage: ImageView by bindView(R.id.headerImage)
     val headerLayout: View by bindView(R.id.headerLayout)
     val adapter: RecyclerBinderAdapter<MainDrawerSection, MainDrawerViewType> = RecyclerBinderAdapter()
-    val scrollListener: OnScrollListener by Delegates.lazy {
-        OnScrollListener(headerLayout)
-    }
+    val scrollListener: OnScrollListener by lazy { OnScrollListener(headerLayout) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-            savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         return inflate(R.layout.main_drawer_fragment, inflater, container)
     }
 

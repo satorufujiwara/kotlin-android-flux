@@ -10,13 +10,12 @@ import butterknife.bindView
 import jp.satorufujiwara.kotlin.AbstractActivity
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.setContentFragment
-import kotlin.properties.Delegates
 
 public class MainActivity : AbstractActivity() {
 
     val toolBar: Toolbar by bindView(R.id.toolBar)
     val drawerLayout: DrawerLayout by bindView(R.id.drawerLayout)
-    val drawerToggle: ActionBarDrawerToggle by Delegates.lazy {
+    val drawerToggle: ActionBarDrawerToggle by lazy {
         ActionBarDrawerToggle(this, drawerLayout,
                 R.string.main_activity_toolbar, R.string.main_activity_toolbar)
     }

@@ -7,7 +7,7 @@ import rx.Observable
 
 public interface GitHubService {
 
-    GET("/users/{user}/repos")
-    fun listRepos(Path("user") user: String): Observable<List<Repo>>
+    @GET("/users/{user}/repos")
+    fun listRepos(@Path("user") user: String): Observable<List<Repo>>
 
 }

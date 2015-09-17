@@ -5,7 +5,7 @@ This project is example of Android Application with Kotlin and Dagger2 and famou
 
 Kotlin
 ----
-Kotlin version is [M12](http://blog.jetbrains.com/kotlin/2015/05/kotlin-m12-is-out/).
+Kotlin version is [M13](http://blog.jetbrains.com/kotlin/2015/09/kotlin-m13-is-out/).
 
 Libraries
 ---------
@@ -25,6 +25,21 @@ Libraries
  * Stetho - http://facebook.github.io/stetho
  * Fabric - https://get.fabric.io
  * RecyclerviewBinder - https://github.com/satorufujiwara/recyclerview-binder
+
+Dagger2 injection
+----
+
+* M13
+```kotlin
+@Inject
+lateinit val gitHubRepository: GitHubRepository
+```
+
+* M12
+```kotlin
+var gitHubRepository: GitHubRepository by Delegates.notNull()
+    @Inject set
+```
 
 Note
 ----

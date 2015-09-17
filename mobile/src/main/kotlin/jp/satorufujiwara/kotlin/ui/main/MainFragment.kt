@@ -19,21 +19,19 @@ import jp.satorufujiwara.kotlin.ui.main.drawer.MainRepoBinder
 import rx.android.schedulers.AndroidSchedulers
 import timber.log.Timber
 import javax.inject.Inject
-import kotlin.platform.platformStatic
-import kotlin.properties.Delegates
 
 public class MainFragment : AbstractFragment() {
 
     companion object {
-        platformStatic fun newInstance(): MainFragment {
+        @JvmStatic fun newInstance(): MainFragment {
             return MainFragment()
         }
     }
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)
     val adapter: RecyclerBinderAdapter<MainSection, MainViewType> = RecyclerBinderAdapter()
-    var gitHubRepository: GitHubRepository by Delegates.notNull()
-        @Inject set
+    @Inject
+    lateinit val gitHubRepository: GitHubRepository
 
     override fun onAttach(activity: Activity?) {
         super.onAttach(activity)
@@ -41,7 +39,7 @@ public class MainFragment : AbstractFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-            savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         return inflate(R.layout.main_fragment, inflater, container)
     }
 

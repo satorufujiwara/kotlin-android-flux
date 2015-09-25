@@ -31,8 +31,7 @@ Dagger2 injection
 
 * M13
 ```kotlin
-@Inject
-lateinit val gitHubRepository: GitHubRepository
+@Inject lateinit val gitHubRepository: GitHubRepository
 ```
 
 * M12
@@ -45,6 +44,29 @@ Note
 ----
 Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
 If you would build, should use your valid Api Key and Api Secret.
+
+Tips
+----
+
+### Multidex
+
+Version `13.1513` has [bug for multidex](https://youtrack.jetbrains.com/issue/KT-9184). Use `13.1514`. 
+
+More detail is [here](http://blog.jetbrains.com/kotlin/2015/09/kotlin-m13-is-out/#comment-38475).
+
+### kapt
+
+http://blog.jetbrains.com/kotlin/2015/05/kapt-annotation-processing-for-kotlin/
+http://blog.jetbrains.com/kotlin/2015/06/better-annotation-processing-supporting-stubs-in-kapt/
+
+If use with Dagger2, must enable 'generateStub' option.
+
+```Groovy
+kapt {
+    generateStubs = true
+}
+```
+
 
 ToDo
 ----

@@ -26,8 +26,10 @@ Libraries
  * Fabric - https://get.fabric.io
  * RecyclerviewBinder - https://github.com/satorufujiwara/recyclerview-binder
 
-Dagger2 injection
+Tips
 ----
+
+### Dagger2 injection
 
 * M13
 ```kotlin
@@ -39,14 +41,6 @@ Dagger2 injection
 var gitHubRepository: GitHubRepository by Delegates.notNull()
     @Inject set
 ```
-
-Note
-----
-Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
-If you would build, should use your valid Api Key and Api Secret.
-
-Tips
-----
 
 ### Multidex
 
@@ -66,6 +60,11 @@ kapt {
     generateStubs = true
 }
 ```
+
+Note
+----
+Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
+If you would build, should use your valid Api Key and Api Secret.
 
 
 ToDo

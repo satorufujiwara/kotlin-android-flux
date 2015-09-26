@@ -4,7 +4,7 @@ import android.app.Application
 
 import jp.satorufujiwara.kotlin.data.repository.GitHubRepository
 
-public interface BaseAppComponent {
+public interface MainAppComponent {
 
     public fun application(): Application
 

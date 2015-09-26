@@ -5,7 +5,7 @@ import jp.satorufujiwara.kotlin.data.DebugDataModule
 
 @AppScope
 @Component(modules = arrayOf(DebugAppModule::class, DebugDataModule::class))
-public interface AppComponent : BaseAppComponent {
+public interface AppComponent : MainAppComponent {
 
     fun inject(app: DaggerApp)
 

@@ -5,7 +5,7 @@ import jp.satorufujiwara.kotlin.data.DataModule
 
 @AppScope
 @Component(modules = arrayOf(AppModule::class, DataModule::class))
-public interface AppComponent : BaseAppComponent {
+public interface AppComponent : MainAppComponent {
 
     fun inject(app: DaggerApp)
 

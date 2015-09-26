@@ -15,11 +15,13 @@ import retrofit.android.AndroidMockValuePersistence
 @Module
 public class ApiModule {
 
+    companion object {
+        @JvmStatic val PRODUCTION_API_URL: String = "https://api.github.com"
+    }
+
     @Provides
     @AppScope
-    fun provideEndpoint(): Endpoint {
-        return Endpoints.newFixedEndpoint(PRODUCTION_API_URL)
-    }
+    fun provideEndpoint(): Endpoint = Endpoints.newFixedEndpoint(PRODUCTION_API_URL)
 
     @Provides
     @AppScope
@@ -32,13 +34,7 @@ public class ApiModule {
 
     @Provides
     @AppScope
-    fun provideGitHubService(restAdapter: MockRestAdapter): GitHubService {
-        return restAdapter.create(GitHubService::class.java, MockGitHubService())
-    }
-
-    companion object {
-
-        public val PRODUCTION_API_URL: String = "https://api.github.com"
-    }
+    fun provideGitHubService(restAdapter: MockRestAdapter): GitHubService =
+            restAdapter.create(GitHubService::class.java, MockGitHubService())
 
 }

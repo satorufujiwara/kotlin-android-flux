@@ -30,24 +30,26 @@ public class MainDrawerFragment : AbstractFragment() {
     val scrollListener: OnScrollListener by lazy { OnScrollListener(headerLayout) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflate(R.layout.main_drawer_fragment, inflater, container)
-    }
+            savedInstanceState: Bundle?): View? =
+            inflate(R.layout.main_drawer_fragment, inflater, container)
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView.setAdapter(adapter)
-        recyclerView.setLayoutManager(LinearLayoutManager(getActivity()))
+        val activity = activity
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addOnScrollListener(scrollListener)
 
-        adapter.add(MainDrawerSection.HEADER, MainDrawerTransparentBinder(getActivity()))
-        adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(getActivity(),
+        adapter.add(MainDrawerSection.HEADER, MainDrawerTransparentBinder(activity))
+        adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(activity,
                 getString(R.string.main_drawer_navigation_home)))
         for (i in 0..10) {
-            adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(getActivity(),
+            adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(activity,
                     "Menu : " + i))
         }
-        Glide.with(this).load("https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg").into(headerImage)
+        Glide.with(this)
+                .load("https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg")
+                .into(headerImage)
     }
 
     override fun onDestroyView() {
@@ -65,10 +67,10 @@ public class MainDrawerFragment : AbstractFragment() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             y += dy
-            if (y > headerLayout.getHeight()) {
+            if (y > headerLayout.height) {
                 return
             }
-            headerLayout.setTranslationY((-y / 2).toFloat())
+            headerLayout.translationY = (-y / 2).toFloat()
         }
     }
 }

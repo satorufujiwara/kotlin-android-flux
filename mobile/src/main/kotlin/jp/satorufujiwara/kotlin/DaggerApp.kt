@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 public open class DaggerApp : Application() {
 
-    var appComponent: AppComponent? = null
+    val appComponent: AppComponent by lazy { AppComponent.Initializer.init(this) }
 
     @Inject lateinit val appLifecycleCallbacks: AppLifecycleCallbacks
 
@@ -17,8 +17,7 @@ public open class DaggerApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = AppComponent.Initializer.init(this)
-        appComponent!!.inject(this)
+        appComponent.inject(this)
         AppGlideModule.registerComponents(this, okHttpClient)
         appLifecycleCallbacks.onCreate(this)
     }

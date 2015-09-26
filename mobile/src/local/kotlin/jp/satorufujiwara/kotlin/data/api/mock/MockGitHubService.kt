@@ -6,7 +6,6 @@ import rx.Observable
 
 class MockGitHubService : GitHubService {
 
-    override fun listRepos(user: String): Observable<List<Repo>> {
-        return Observable.just(MockGitHub.MOCK_REPO_LIST)
-    }
+    override fun listRepos(user: String): Observable<List<Repo>> =
+            Observable.just(MockGitHub.MOCK_REPO_LIST)
 }

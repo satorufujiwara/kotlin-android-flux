@@ -7,14 +7,13 @@ import jp.satorufujiwara.kotlin.data.DebugDataModule
 @Component(modules = arrayOf(DebugAppModule::class, DebugDataModule::class))
 public interface AppComponent : BaseAppComponent {
 
-    public fun inject(app: DaggerApp)
+    fun inject(app: DaggerApp)
 
-    public object Initializer {
-        public fun init(app: DaggerApp): AppComponent {
-            return DaggerAppComponent.builder()
-                    .debugAppModule(DebugAppModule(app))
-                    .debugDataModule(
-                            DebugDataModule()).build()
-        }
+    object Initializer {
+        fun init(app: DaggerApp): AppComponent =
+                DaggerAppComponent.builder()
+                        .debugAppModule(DebugAppModule(app))
+                        .debugDataModule(DebugDataModule())
+                        .build()
     }
 }

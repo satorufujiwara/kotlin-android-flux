@@ -10,7 +10,6 @@ public class RepositoryModule {
 
     @Provides
     @AppScope
-    fun provideGitHubRepository(gitHubService: GitHubService): GitHubRepository {
-        return GitHubRepository(gitHubService)
-    }
+    fun provideGitHubRepository(gitHubService: GitHubService): GitHubRepository =
+            GitHubRepository(gitHubService)
 }

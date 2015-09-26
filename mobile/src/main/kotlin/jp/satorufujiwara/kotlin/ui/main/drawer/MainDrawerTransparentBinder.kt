@@ -6,16 +6,12 @@ import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import jp.satorufujiwara.kotlin.R
 
-public class MainDrawerTransparentBinder(activity: Activity) : RecyclerBinder<MainDrawerViewType>(
-        activity, MainDrawerViewType.TRANSPARENT) {
+public class MainDrawerTransparentBinder(activity: Activity)
+: RecyclerBinder<MainDrawerViewType>(activity, MainDrawerViewType.TRANSPARENT) {
 
-    override fun layoutResId(): Int {
-        return R.layout.main_drawer_transparent_binder
-    }
+    override fun layoutResId(): Int = R.layout.main_drawer_transparent_binder
 
-    override fun onCreateViewHolder(view: View?): RecyclerView.ViewHolder? {
-        return ViewHolder(view)
-    }
+    override fun onCreateViewHolder(view: View?): RecyclerView.ViewHolder? = ViewHolder(view)
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
     }

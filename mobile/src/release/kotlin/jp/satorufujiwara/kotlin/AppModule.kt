@@ -1,9 +1,7 @@
 package jp.satorufujiwara.kotlin
 
-import com.squareup.leakcanary.RefWatcher
-
 import android.app.Application
-
+import com.squareup.leakcanary.RefWatcher
 import dagger.Module
 import dagger.Provides
 
@@ -12,18 +10,14 @@ public class AppModule(private val app: DaggerApp) {
 
     @Provides
     @AppScope
-    fun provideApplication(): Application {
-        return app
-    }
+    fun provideApplication(): Application = app
 
     @Provides
-    public fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks {
-        return ReleaseAppLifecycleCallbacks()
-    }
+    @AppScope
+    public fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = ReleaseAppLifecycleCallbacks()
 
     @Provides
-    public fun provideRefWatcher(): RefWatcher {
-        return RefWatcher.DISABLED
-    }
+    @AppScope
+    public fun provideRefWatcher(): RefWatcher = RefWatcher.DISABLED
 
 }

@@ -25,8 +25,8 @@ public class MainActivity : AbstractActivity() {
         setContentView(R.layout.main_activity)
         setContentFragment(R.id.containerLayout, MainFragment.newInstance())
         setSupportActionBar(toolBar)
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        drawerToggle.setDrawerIndicatorEnabled(true)
+        supportActionBar.setDisplayHomeAsUpEnabled(true)
+        drawerToggle.isDrawerIndicatorEnabled = true
         MainComponent.Initializer.init(this).inject(this)
     }
 
@@ -40,11 +40,8 @@ public class MainActivity : AbstractActivity() {
         drawerToggle.onConfigurationChanged(newConfig)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item)
-    }
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean =
+            if (drawerToggle.onOptionsItemSelected(item)) true
+            else super.onOptionsItemSelected(item)
 
 }

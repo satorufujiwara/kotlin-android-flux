@@ -9,7 +9,5 @@ public enum class MainDrawerViewType : ViewType {
     TITLE,
     CHANNEL;
 
-    override fun viewType(): Int {
-        return ordinal()
-    }
+    override fun viewType(): Int = ordinal()
 }

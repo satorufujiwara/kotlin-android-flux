@@ -8,9 +8,9 @@ import javax.inject.Inject
 public open class DaggerApp : Application() {
 
     val appComponent: AppComponent by lazy { AppComponent.Initializer.init(this) }
-    @Inject lateinit val appLifecycleCallbacks: AppLifecycleCallbacks
-    @Inject lateinit val refWatcher: RefWatcher
-    @Inject lateinit val okHttpClient: OkHttpClient
+    @Inject lateinit var appLifecycleCallbacks: AppLifecycleCallbacks
+    @Inject lateinit var refWatcher: RefWatcher
+    @Inject lateinit var okHttpClient: OkHttpClient
 
     override fun onCreate() {
         super.onCreate()

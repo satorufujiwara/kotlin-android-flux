@@ -5,7 +5,7 @@ This project is example of Android Application with Kotlin and Dagger2 and famou
 
 Kotlin
 ----
-Kotlin version is [M13](http://blog.jetbrains.com/kotlin/2015/09/kotlin-m13-is-out/).
+Kotlin version is [M14](http://blog.jetbrains.com/kotlin/2015/10/kotlin-m14-is-out/).
 
 Libraries
 ---------
@@ -31,22 +31,9 @@ Tips
 
 ### Dagger2 injection
 
-* M13
 ```kotlin
-@Inject lateinit val gitHubRepository: GitHubRepository
+@Inject lateinit var gitHubRepository: GitHubRepository
 ```
-
-* M12
-```kotlin
-var gitHubRepository: GitHubRepository by Delegates.notNull()
-    @Inject set
-```
-
-### Multidex
-
-Version `13.1513` has [bug for multidex](https://youtrack.jetbrains.com/issue/KT-9184). Use `13.1514`. 
-
-More detail is [here](http://blog.jetbrains.com/kotlin/2015/09/kotlin-m13-is-out/#comment-38475).
 
 ### kapt
 

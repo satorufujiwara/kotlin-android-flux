@@ -13,7 +13,7 @@ import jp.satorufujiwara.binder.Section
 import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import jp.satorufujiwara.kotlin.AbstractFragment
 import jp.satorufujiwara.kotlin.R
-import jp.satorufujiwara.kotlin.data.inflate
+import jp.satorufujiwara.kotlin.util.ext.inflate
 
 public class MainDrawerFragment : AbstractFragment() {
 

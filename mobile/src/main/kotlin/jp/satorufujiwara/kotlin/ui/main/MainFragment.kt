@@ -13,8 +13,8 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import jp.satorufujiwara.kotlin.AbstractFragment
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.api.dto.Repo
-import jp.satorufujiwara.kotlin.data.inflate
 import jp.satorufujiwara.kotlin.data.repository.GitHubRepository
+import jp.satorufujiwara.kotlin.util.ext.inflate
 import rx.android.schedulers.AndroidSchedulers
 import timber.log.Timber
 import javax.inject.Inject
@@ -29,7 +29,7 @@ public class MainFragment : AbstractFragment() {
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)
     val adapter: RecyclerBinderAdapter<MainSection, MainViewType> = RecyclerBinderAdapter()
-    @Inject lateinit val gitHubRepository: GitHubRepository
+    @Inject lateinit var gitHubRepository: GitHubRepository
 
     override fun onAttach(activity: Activity?) {
         super.onAttach(activity)

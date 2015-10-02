@@ -9,7 +9,7 @@ import android.view.MenuItem
 import butterknife.bindView
 import jp.satorufujiwara.kotlin.AbstractActivity
 import jp.satorufujiwara.kotlin.R
-import jp.satorufujiwara.kotlin.data.setContentFragment
+import jp.satorufujiwara.kotlin.util.ext.setContentFragment
 
 public class MainActivity : AbstractActivity() {
 

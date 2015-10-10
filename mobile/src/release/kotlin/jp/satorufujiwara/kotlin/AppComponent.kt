@@ -7,11 +7,11 @@ import jp.satorufujiwara.kotlin.data.DataModule
 @Component(modules = arrayOf(AppModule::class, DataModule::class))
 public interface AppComponent : MainAppComponent {
 
-    fun inject(app: DaggerApp)
+    fun inject(app: KotlinApp)
 
     object Initializer {
 
-        fun init(app: DaggerApp): AppComponent =
+        fun init(app: KotlinApp): AppComponent =
                 DaggerAppComponent.builder()
                         .appModule(AppModule(app))
                         .dataModule(DataModule())

@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-public class DebugAppModule(private val app: DaggerApp) {
+public class DebugAppModule(private val app: Application) {
 
     @Provides
     @AppScope

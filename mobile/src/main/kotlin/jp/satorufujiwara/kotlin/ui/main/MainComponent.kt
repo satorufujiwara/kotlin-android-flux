@@ -2,7 +2,7 @@ package jp.satorufujiwara.kotlin.ui.main
 
 import dagger.Component
 import jp.satorufujiwara.kotlin.AppComponent
-import jp.satorufujiwara.kotlin.DaggerApp
+import jp.satorufujiwara.kotlin.KotlinApp
 
 @MainScope
 @Component(dependencies = arrayOf(AppComponent::class), modules = arrayOf(MainModule::class))
@@ -15,9 +15,10 @@ public interface MainComponent {
     public object Initializer {
 
         public fun init(activity: MainActivity): MainComponent {
-            return DaggerMainComponent.builder().appComponent(
-                    (activity.application as DaggerApp).appComponent).mainModule(
-                    MainModule()).build()
+            return DaggerMainComponent.builder()
+                    .appComponent(KotlinApp.appComponent(activity))
+                    .mainModule(MainModule())
+                    .build()
         }
     }
 }

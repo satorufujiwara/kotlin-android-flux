@@ -21,6 +21,8 @@ public class MainDrawerFragment : AbstractFragment() {
         @JvmStatic fun newInstance(): MainDrawerFragment {
             return MainDrawerFragment()
         }
+
+        const val IMAGE_URL = "https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg"
     }
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)
@@ -47,9 +49,7 @@ public class MainDrawerFragment : AbstractFragment() {
             adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(activity,
                     "Menu : " + i))
         }
-        Glide.with(this)
-                .load("https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg")
-                .into(headerImage)
+        Glide.with(this).load(IMAGE_URL).into(headerImage)
     }
 
     override fun onDestroyView() {

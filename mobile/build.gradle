@@ -64,7 +64,7 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
     //data
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     localCompile 'com.squareup.retrofit:retrofit-mock:1.9.0'

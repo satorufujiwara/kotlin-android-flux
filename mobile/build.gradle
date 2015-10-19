@@ -45,7 +45,7 @@ android {
     }
 }
 
-def appcompatVersion="23.0.1"
+def appcompatVersion="23.1.0"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -90,7 +90,7 @@ dependencies {
     }
 
     //ui
-    compile 'jp.satorufujiwara:recyclerview-binder:1.2.0'
+    compile 'jp.satorufujiwara:recyclerview-binder:1.2.2'
 }
 
 kapt {

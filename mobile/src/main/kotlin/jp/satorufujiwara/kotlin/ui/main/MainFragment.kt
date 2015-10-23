@@ -37,7 +37,7 @@ public class MainFragment : AbstractFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-            savedInstanceState: Bundle?): View? =
+                              savedInstanceState: Bundle?): View? =
             inflate(R.layout.main_fragment, inflater, container)
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -63,6 +63,8 @@ public class MainFragment : AbstractFragment() {
     }
 
     enum class MainSection : Section {
-        CONTENTS
+        CONTENTS;
+
+        override fun position(): Int = ordinal
     }
 }

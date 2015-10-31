@@ -32,7 +32,7 @@ public class MainDrawerFragment : AbstractFragment() {
     val scrollListener: OnScrollListener by lazy { OnScrollListener(headerLayout) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-            savedInstanceState: Bundle?): View? =
+                              savedInstanceState: Bundle?): View? =
             inflate(R.layout.main_drawer_fragment, inflater, container)
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -59,7 +59,9 @@ public class MainDrawerFragment : AbstractFragment() {
 
     enum class MainDrawerSection : Section {
         HEADER,
-        NAVIGATION
+        NAVIGATION;
+
+        override fun position(): Int = ordinal
     }
 
     class OnScrollListener(val headerLayout: View) : RecyclerView.OnScrollListener() {

@@ -6,5 +6,5 @@ public enum class MainViewType : ViewType {
 
     REPO;
 
-    override fun viewType(): Int = ordinal()
+    override fun viewType(): Int = ordinal
 }

@@ -18,11 +18,7 @@ import jp.satorufujiwara.kotlin.util.ext.inflate
 public class MainDrawerFragment : AbstractFragment() {
 
     companion object {
-        @JvmStatic fun newInstance(): MainDrawerFragment {
-            return MainDrawerFragment()
-        }
-
-        const val IMAGE_URL = "https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg"
+        private const val IMAGE_URL = "https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg"
     }
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)

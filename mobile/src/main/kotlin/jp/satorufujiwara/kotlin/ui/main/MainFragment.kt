@@ -22,9 +22,7 @@ import javax.inject.Inject
 public class MainFragment : AbstractFragment() {
 
     companion object {
-        @JvmStatic fun newInstance(): MainFragment {
-            return MainFragment()
-        }
+        @JvmStatic fun newInstance() = MainFragment()
     }
 
     val recyclerView: RecyclerView by bindView(R.id.recyclerView)

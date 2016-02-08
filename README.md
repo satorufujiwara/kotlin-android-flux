@@ -5,7 +5,7 @@ This project is example of Android Application with Kotlin and Dagger2 and famou
 
 Kotlin
 ----
-Kotlin version is [1.0.0-beta-4584](http://blog.jetbrains.com/kotlin/2015/12/kotlin-1-0-beta-4-is-out/).
+Kotlin version is [1.0.0-rc-1036](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-release-candidate-is-out/).
 
 Libraries
 ---------
@@ -47,6 +47,24 @@ kapt {
     generateStubs = true
 }
 ```
+
+### Parcerable
+
+Use `@JvmField` as `CREATOR`'s annotation instead of `@JvmStatic`
+
+```kotlin
+companion object {
+    @JvmField val CREATOR: Parcelable.Creator<Repo> = object : Parcelable.Creator<Repo> {
+        override fun createFromParcel(source: Parcel): Repo? {
+            return Repo(source)
+        }
+        override fun newArray(size: Int): Array<out Repo?>? {
+            return arrayOfNulls(size)
+        }
+    }
+}
+```
+http://blog.jetbrains.com/kotlin/2015/10/kotlin-1-0-beta-candidate-is-out
 
 Note
 ----

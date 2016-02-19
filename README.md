@@ -5,7 +5,7 @@ This project is example of Android Application with Kotlin and Dagger2 and famou
 
 Kotlin
 ----
-Kotlin version is [1.0.0-rc-1036](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-release-candidate-is-out/).
+Kotlin version is [1.0.0](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-released-pragmatic-language-for-jvm-and-android/).
 
 Libraries
 ---------

@@ -1,5 +1,6 @@
 package jp.satorufujiwara.kotlin.ui.main.drawer
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -9,13 +10,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import butterknife.bindView
 import com.bumptech.glide.Glide
+import com.trello.rxlifecycle.kotlin.bindToLifecycle
 import jp.satorufujiwara.binder.Section
 import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import jp.satorufujiwara.kotlin.AbstractFragment
 import jp.satorufujiwara.kotlin.R
+import jp.satorufujiwara.kotlin.ui.main.MainActivity
 import jp.satorufujiwara.kotlin.util.ext.inflate
+import rx.android.schedulers.AndroidSchedulers
+import rx.subjects.PublishSubject
 
-public class MainDrawerFragment : AbstractFragment() {
+class MainDrawerFragment : AbstractFragment() {
 
     companion object {
         private const val IMAGE_URL = "https://raw.githubusercontent.com/satorufujiwara/kotlin-android-example/master/art/header_image.jpg"
@@ -26,6 +31,7 @@ public class MainDrawerFragment : AbstractFragment() {
     val headerLayout: View by bindView(R.id.headerLayout)
     val adapter: RecyclerBinderAdapter<MainDrawerSection, MainDrawerViewType> = RecyclerBinderAdapter()
     val scrollListener: OnScrollListener by lazy { OnScrollListener(headerLayout) }
+    val itemClickObservable = PublishSubject.create<Intent>()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
@@ -41,11 +47,23 @@ public class MainDrawerFragment : AbstractFragment() {
         adapter.add(MainDrawerSection.HEADER, MainDrawerTransparentBinder(activity))
         adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(activity,
                 getString(R.string.main_drawer_navigation_home)))
-        for (i in 0..10) {
-            adapter.add(MainDrawerSection.NAVIGATION, MainDrawerNavigationBinder(activity,
-                    "Menu : " + i))
-        }
+        adapter.addAll(MainDrawerSection.NAVIGATION,
+                (0..10).map {
+                    MainDrawerNavigationBinder(activity, "Menu : $it") {
+                        itemClickObservable.onNext(MainActivity.createIntent(activity))
+                    }
+                })
         Glide.with(this).load(IMAGE_URL).into(headerImage)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val activity = (activity as MainActivity)
+        itemClickObservable.observeOn(AndroidSchedulers.mainThread())
+                .doOnNext { activity.drawerLayout.closeDrawers() }
+                .zipWith(activity.drawerObservable.skip(1).filter { !it }) { intent, drawer -> intent }
+                .bindToLifecycle(this)
+                .subscribe { startActivity(it) }
     }
 
     override fun onDestroyView() {

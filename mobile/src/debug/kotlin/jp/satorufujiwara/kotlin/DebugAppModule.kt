@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-public class DebugAppModule(private val app: Application) {
+class DebugAppModule(private val app: Application) {
 
     @Provides
     @AppScope
@@ -15,10 +15,10 @@ public class DebugAppModule(private val app: Application) {
 
     @Provides
     @AppScope
-    public fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = DebugAppLifecycleCallbacks()
+    fun provideAppLifecycleCallbacks(): AppLifecycleCallbacks = DebugAppLifecycleCallbacks()
 
     @Provides
     @AppScope
-    public fun provideRefWatcher(application: Application): RefWatcher =
+    fun provideRefWatcher(application: Application): RefWatcher =
             LeakCanary.install(application)
 }

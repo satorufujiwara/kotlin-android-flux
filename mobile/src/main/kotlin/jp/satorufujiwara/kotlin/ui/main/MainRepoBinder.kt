@@ -10,7 +10,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import jp.satorufujiwara.kotlin.R
 import jp.satorufujiwara.kotlin.data.api.dto.Repo
 
-public class MainRepoBinder(activity: Activity, val repo: Repo)
+class MainRepoBinder(activity: Activity, val repo: Repo, val onClick: (() -> Unit)? = null)
 : RecyclerBinder<MainViewType>(activity, MainViewType.REPO) {
 
     override fun layoutResId(): Int = R.layout.main_repo_binder
@@ -20,7 +20,7 @@ public class MainRepoBinder(activity: Activity, val repo: Repo)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         holder as ViewHolder
         holder.textView.text = repo.name
-        holder.rootLayout.setOnClickListener {}
+        holder.rootLayout.setOnClickListener { onClick?.invoke() }
     }
 
     class ViewHolder(view: View?) : RecyclerView.ViewHolder(view) {

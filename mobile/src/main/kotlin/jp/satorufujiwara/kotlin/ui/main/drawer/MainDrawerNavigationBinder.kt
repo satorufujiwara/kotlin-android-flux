@@ -9,7 +9,7 @@ import butterknife.bindView
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import jp.satorufujiwara.kotlin.R
 
-public class MainDrawerNavigationBinder(activity: Activity, val text: String)
+class MainDrawerNavigationBinder(activity: Activity, val text: String, val onClick: (() -> Unit)? = null)
 : RecyclerBinder<MainDrawerViewType>(activity, MainDrawerViewType.NAVIGATION) {
 
     override fun layoutResId(): Int = R.layout.main_drawer_navigation_binder
@@ -19,7 +19,7 @@ public class MainDrawerNavigationBinder(activity: Activity, val text: String)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         holder as ViewHolder
         holder.textView.text = text
-        holder.rootLayout.setOnClickListener {}
+        holder.rootLayout.setOnClickListener { onClick?.invoke() }
     }
 
     class ViewHolder(view: View?) : RecyclerView.ViewHolder(view) {

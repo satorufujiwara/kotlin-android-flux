@@ -59,7 +59,7 @@ class MainFragment : AbstractFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .bindToLifecycle(this)
                 .subscribe {
-                    adapter.addAll(MainSection.CONTENTS, it.map { MainRepoBinder(activity, it) })
+                    adapter.replaceAll(MainSection.CONTENTS, it.map { MainRepoBinder(activity, it) })
                     adapter.notifyDataSetChanged()
                 }
         savedInstanceState ?: mainAction.refreshList(screenId)

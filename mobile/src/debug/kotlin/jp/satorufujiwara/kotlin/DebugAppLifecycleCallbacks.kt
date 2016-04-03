@@ -5,7 +5,7 @@ import com.facebook.stetho.Stetho
 import com.squareup.leakcanary.LeakCanary
 import timber.log.Timber
 
-public class DebugAppLifecycleCallbacks : AppLifecycleCallbacks {
+class DebugAppLifecycleCallbacks : AppLifecycleCallbacks {
 
     override fun onCreate(application: Application) {
         Timber.plant(Timber.DebugTree())

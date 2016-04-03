@@ -2,7 +2,7 @@ package jp.satorufujiwara.kotlin.ui.main
 
 import jp.satorufujiwara.binder.ViewType
 
-public enum class MainViewType : ViewType {
+enum class MainViewType : ViewType {
 
     REPO;
 

@@ -19,7 +19,7 @@ import retrofit.converter.GsonConverter
 import javax.inject.Named
 
 @Module(includes = arrayOf(ApiModule::class, RepositoryModule::class))
-public class DebugDataModule {
+class DebugDataModule {
 
     @Provides
     @AppScope
@@ -32,7 +32,7 @@ public class DebugDataModule {
 
     @Provides
     @AppScope
-    public fun provideOkHttpClient(app: Application): OkHttpClient {
+    fun provideOkHttpClient(app: Application): OkHttpClient {
         val client = OkHttpClient()
         client.networkInterceptors().add(StethoInterceptor())
         return client
@@ -46,7 +46,7 @@ public class DebugDataModule {
     @Provides
     @AppScope
     fun provideRestAdapter(endpoint: Endpoint, @Named("Api") client: OkHttpClient,
-            gson: Gson): RestAdapter =
+                           gson: Gson): RestAdapter =
             RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
                     .setClient(OkClient(client))

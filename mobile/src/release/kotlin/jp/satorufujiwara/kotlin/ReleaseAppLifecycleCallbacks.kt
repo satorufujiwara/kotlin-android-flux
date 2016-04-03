@@ -8,7 +8,7 @@ import io.fabric.sdk.android.Fabric
 import jp.satorufujiwara.kotlin.util.CrashlyticsTree
 import timber.log.Timber
 
-public class ReleaseAppLifecycleCallbacks : AppLifecycleCallbacks {
+class ReleaseAppLifecycleCallbacks : AppLifecycleCallbacks {
 
     override fun onCreate(application: Application) {
         Fabric.with(application, Crashlytics())

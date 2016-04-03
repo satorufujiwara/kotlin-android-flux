@@ -6,7 +6,7 @@ import jp.satorufujiwara.kotlin.AppScope
 import jp.satorufujiwara.kotlin.data.api.GitHubService
 
 @Module
-public class RepositoryModule {
+class RepositoryModule {
 
     @Provides
     @AppScope

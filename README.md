@@ -1,11 +1,17 @@
-kotlin-android-example
+kotlin-android-flux
 ====
 
-This project is example of Android Application with Kotlin and Dagger2 and famous Libraries.
+This project is example of Android app with Flux and Kotlin and Dagger2 and famous libraries.
 
 Kotlin
 ----
-Kotlin version is [1.0.0](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-released-pragmatic-language-for-jvm-and-android/).
+Kotlin version is [1.0.1-2](https://blog.jetbrains.com/kotlin/2016/03/kotlin-1-0-1-is-here/).
+
+[Kotlin Android Roadmap](https://blog.jetbrains.com/kotlin/2016/03/kotlins-android-roadmap/)
+
+Flux
+----
+http://facebook.github.io/flux/docs/overview.html#content
 
 Libraries
 ---------
@@ -20,6 +26,8 @@ Libraries
  * RxJava - https://github.com/ReactiveX/RxJava
  * RxAndroid - https://github.com/ReactiveX/RxAndroid
  * RxLifecycle - https://github.com/trello/RxLifecycle
+ * SQLBrite - https://github.com/square/sqlbrite
+ * rx-preferences - https://github.com/f2prateek/rx-preferences
  * Timber - http://github.com/JakeWharton/timber
  * LeakCanary - http://github.com/square/leakcanary
  * Stetho - http://facebook.github.io/stetho
@@ -32,7 +40,7 @@ Tips
 ### Dagger2 injection
 
 ```kotlin
-@Inject lateinit var gitHubRepository: GitHubRepository
+@Inject lateinit var mainAction: MainAction
 ```
 
 ### kapt

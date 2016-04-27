@@ -2,7 +2,7 @@ package jp.satorufujiwara.kotlin.ui.main.drawer
 
 import jp.satorufujiwara.binder.ViewType
 
-public enum class MainDrawerViewType : ViewType {
+enum class MainDrawerViewType : ViewType {
 
     TRANSPARENT,
     NAVIGATION,

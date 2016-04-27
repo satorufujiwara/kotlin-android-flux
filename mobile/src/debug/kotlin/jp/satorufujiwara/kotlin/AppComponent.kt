@@ -2,10 +2,11 @@ package jp.satorufujiwara.kotlin
 
 import dagger.Component
 import jp.satorufujiwara.kotlin.data.DebugDataModule
+import jp.satorufujiwara.kotlin.ui.FluxModule
 
 @AppScope
-@Component(modules = arrayOf(DebugAppModule::class, DebugDataModule::class))
-public interface AppComponent : MainAppComponent {
+@Component(modules = arrayOf(DebugAppModule::class, DebugDataModule::class, FluxModule::class))
+interface AppComponent : MainAppComponent {
 
     fun inject(app: KotlinApp)
 

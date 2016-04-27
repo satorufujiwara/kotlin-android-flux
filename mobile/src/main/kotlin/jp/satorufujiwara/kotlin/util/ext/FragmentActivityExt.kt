@@ -1,9 +1,10 @@
 package jp.satorufujiwara.kotlin.util.ext
 
-import android.app.Activity
-import android.content.res.Configuration
+import android.content.Context
+import android.support.annotation.IntDef
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
+import android.widget.Toast
 
 fun FragmentActivity.setContentFragment(containerViewId: Int, fragment: Fragment?): Fragment? {
     val f: Fragment? = supportFragmentManager?.findFragmentById(containerViewId)
@@ -12,6 +13,9 @@ fun FragmentActivity.setContentFragment(containerViewId: Int, fragment: Fragment
     return fragment
 }
 
-fun Activity.isLandscape(): Boolean =
-        resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+@IntDef(Toast.LENGTH_SHORT.toLong(), Toast.LENGTH_LONG.toLong())
+annotation class Duration
 
+fun Context.showToast(text: String, @Duration length: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, text, length).show()
+}

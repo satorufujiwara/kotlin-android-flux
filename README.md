@@ -76,7 +76,7 @@ http://blog.jetbrains.com/kotlin/2015/10/kotlin-1-0-beta-candidate-is-out
 
 Note
 ----
-Fabirc [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
+Fabric [Api Key](./mobile/src/main/AndroidManifest.xml#L22) and [Api Secret](./mobile/fabric.properties#L3) are empty.
 If you would build, should use your valid Api Key and Api Secret.
 
 
@@ -96,7 +96,7 @@ Thanks
 
 License
 -------
-    Copyright 2015 Satoru Fujiwara
+    Copyright 2016 Satoru Fujiwara
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

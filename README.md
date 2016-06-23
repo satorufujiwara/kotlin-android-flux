@@ -5,7 +5,7 @@ This project is example of Android app with Flux and Kotlin and Dagger2 and famo
 
 Kotlin
 ----
-Kotlin version is [1.0.1-2](https://blog.jetbrains.com/kotlin/2016/03/kotlin-1-0-1-is-here/).
+Kotlin version is [1.0.2](https://blog.jetbrains.com/kotlin/2016/05/kotlin-1-0-2-is-here/).
 
 [Kotlin Android Roadmap](https://blog.jetbrains.com/kotlin/2016/03/kotlins-android-roadmap/)
 
@@ -26,6 +26,7 @@ Libraries
  * RxJava - https://github.com/ReactiveX/RxJava
  * RxAndroid - https://github.com/ReactiveX/RxAndroid
  * RxLifecycle - https://github.com/trello/RxLifecycle
+ * RxBinding - https://github.com/JakeWharton/RxBinding
  * SQLBrite - https://github.com/square/sqlbrite
  * rx-preferences - https://github.com/f2prateek/rx-preferences
  * Timber - http://github.com/JakeWharton/timber

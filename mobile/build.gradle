@@ -7,12 +7,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -45,7 +45,7 @@ android {
     }
 }
 
-def appcompatVersion = "23.2.0"
+def appcompatVersion = "24.0.0"
 def rxBindingVersion = "0.4.0"
 def rxLifecycleVersion = "0.5.0"
 dependencies {

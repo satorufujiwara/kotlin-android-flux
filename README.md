@@ -5,7 +5,7 @@ This project is example of Android app with Flux and Kotlin and Dagger2 and famo
 
 Kotlin
 ----
-Kotlin version is [1.0.2](https://blog.jetbrains.com/kotlin/2016/05/kotlin-1-0-2-is-here/).
+Kotlin version is [1.0.3](https://blog.jetbrains.com/kotlin/2016/06/kotlin-1-0-3-is-here/).
 
 [Kotlin Android Roadmap](https://blog.jetbrains.com/kotlin/2016/03/kotlins-android-roadmap/)
 
